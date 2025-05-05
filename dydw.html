@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Diseño y Desarrollo Web | Mi Cursada</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="flex flex-col min-h-screen fade-in">
-  <!-- NAV -->
+<body class="flex flex-col min-h-screen bg-[#f5f5f5] fade-in">
   <nav class="bg-[#8b5e3c] text-white p-4 fixed w-full top-0 shadow-lg z-10">
     <div class="container mx-auto flex justify-between items-center">
       <a href="index.html" class="text-2xl font-bold">Mi Cursada</a>
@@ -21,58 +20,62 @@
     </div>
   </nav>
 
-  <!-- CONTENIDO -->
-  <div class="container mx-auto px-4 pt-28 fade-in">
-    <h1 class="text-center text-3xl font-bold mb-6">Diseño y Desarrollo Web</h1>
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-      <!-- Columna 1: Fechas de Exámenes + Bibliografía -->
-      <div class="md:col-span-4 space-y-4">
-        <!-- Fechas de Exámenes -->
-        <div class="bg-white p-4 border rounded shadow">
-          <h5 class="font-semibold mb-2">Fecha: Primer Parcial</h5>
-          <div class="list-group mb-4">
-            <a href="https://virtualbsp.uade.edu.ar/d2l/lms/dropbox/user/folder_submit_files.d2l?db=51311&grpid=0&isprv=0&bp=0&ou=43569" target="_blank" class="block py-2 hover:underline">25 de Abril de 2025</a>
-          </div>
-          <h5 class="font-semibold mb-2">Fecha: Segundo Parcial</h5>
-          <ul class="list-disc list-inside ml-5">
-            <li>13 de Junio de 2025</li>
+  <main class="pt-28 container mx-auto px-4">
+    <h2 class="text-3xl font-bold mb-10 text-center text-[#8b5e3c]">Diseño y Desarrollo Web</h2>
+
+    <!-- Layout principal con dos columnas -->
+    <div class="flex flex-col lg:flex-row gap-6">
+      <!-- Columna izquierda con dos bloques -->
+      <div class="flex flex-col gap-6 w-full lg:w-1/3">
+        <!-- Fechas de exámenes -->
+        <div class="bg-white shadow-md rounded-xl p-6">
+          <h3 class="text-xl font-semibold mb-4 text-[#8b5e3c]">Fechas de exámenes</h3>
+          <ul class="list-disc list-inside">
+            <li>Examen 1: 25 de abril del 2025</li>
+            <li>Examen 2: 13 de junio del 2025</li>
+            <li>Recuperatorio: 4 de julio del 2025</li>
+            <li>Examen Final: 18 de julio del 2025</li>
           </ul>
         </div>
+
         <!-- Bibliografía -->
-        <div class="bg-white p-4 border rounded shadow">
-          <h5 class="font-semibold mb-2">Bibliografía</h5>
-          <ul class="list-disc list-inside ml-5 text-sm">
-            <li>
-              NIEDERST ROBBINS, Jennifer. <em>HTML5 Pocket Reference Quick, Comprehensive, Indispensable (Pocket Reference (O'Reilly))</em>. 5ta. Ed. EE. UU.: O'Reilly Media, 2013. ISBN: 978-1449363352
-            </li>
+        <div class="bg-white shadow-md rounded-xl p-6">
+          <h3 class="text-xl font-semibold mb-4 text-[#8b5e3c]">Bibliografías</h3>
+          <ul class="list-disc list-inside text-blue-700">
+            <li><a href="https://html.com/" target="_blank" class="underline">HTML para principiantes</a></li>
+            <li><a href="https://www.w3schools.com/html/" target="_blank" class="underline">W3Schools</a></li>
+            <li><a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank" class="underline">CSS developer mozilla</a></li>
+            <li><a href="https://getbootstrap.com/" target="_blank" class="underline">Bootstrap</a></li>
           </ul>
         </div>
       </div>
 
-      <!-- Columna 2: Actividades UVAs -->
-      <div class="md:col-span-8 bg-white p-4 border rounded shadow h-full">
-        <h5 class="font-semibold mb-4">Actividades UVAs</h5>
-        <div class="space-y-2">
-          <a href="https://virtualbsp.uade.edu.ar/d2l/lms/dropbox/user/folder_submit_files.d2l?db=47748&grpid=0&isprv=0&bp=0&ou=43569" target="_blank" class="block hover:underline">UVA 1: Introducción</a>
-          <a href="https://virtualbsp.uade.edu.ar/d2l/lms/dropbox/user/folder_submit_files.d2l?db=47749&grpid=0&isprv=0&bp=0&ou=43569" target="_blank" class="block hover:underline">UVA 1: Etiquetas</a>
-          <a href="https://virtualbsp.uade.edu.ar/d2l/lms/dropbox/user/folder_submit_files.d2l?db=47750&grpid=0&isprv=0&bp=0&ou=43569" target="_blank" class="block hover:underline">UVA 1: Ejercicio integrador</a>
-          <a href="https://virtualbsp.uade.edu.ar/d2l/lms/dropbox/user/folder_submit_files.d2l?db=47751&grpid=0&isprv=0&bp=0&ou=43569" target="_blank" class="block hover:underline">UVA 2: Formato de Texto</a>
-          <a href="https://virtualbsp.uade.edu.ar/d2l/lms/dropbox/user/folder_submit_files.d2l?db=47752&grpid=0&isprv=0&bp=0&ou=43569" target="_blank" class="block hover:underline">UVA 2: Formato de Cajas</a>
-          <a href="https://virtualbsp.uade.edu.ar/d2l/lms/dropbox/user/folder_submit_files.d2l?db=47756&grpid=0&isprv=0&bp=0&ou=43569" target="_blank" class="block hover:underline">UVA 2: Unidades de Medida</a>
-          <a href="https://virtualbsp.uade.edu.ar/d2l/lms/dropbox/user/folder_submit_files.d2l?db=47757&grpid=0&isprv=0&bp=0&ou=43569" target="_blank" class="block hover:underline">UVA 2: Flexbox y Grid</a>
-          <a href="https://virtualbsp.uade.edu.ar/d2l/lms/dropbox/user/folder_submit_files.d2l?db=51241&grpid=0&isprv=0&bp=0&ou=43569" target="_blank" class="block hover:underline">UVA 2: Ejercicio integrador</a>
-        </div>
+      <!-- Columna derecha (contenedor) -->
+      <div class="w-full lg:w-2/3 bg-white shadow-md rounded-xl p-6">
+        <h3 class="text-xl font-semibold mb-4 text-[#8b5e3c]">Actividades UVAs</h3>
+
+        <h4 class="font-semibold text-[#8b5e3c]">UVA 1: Introducción al desarrollo web</h4>
+        <ul class="list-disc list-inside mb-4">
+          <li>HTML - Introducción: <a href="https://github.com/aleeeeea/Martin-1223736-280325-introhtml" class="text-blue-700 underline">Repositorio</a> | <a href="https://aleeeeea.github.io/Martin-1223736-280325-introhtml/" class="text-blue-700 underline">Sitio</a></li>
+          <li>HTML - Etiquetas: <a href="https://github.com/aleeeeea/Martin_1223736_030425_Etiquetas" class="text-blue-700 underline">Repositorio</a> | <a href="https://aleeeeea.github.io/Martin_1223736_030425_Etiquetas/" class="text-blue-700 underline">Sitio</a></li>
+          <li>Ejercicio integrador: <a href="https://github.com/aleeeeea/Martin_1223736_040425_EjObligatorio" class="text-blue-700 underline">Repositorio</a> | <a href="https://aleeeeea.github.io/Martin_1223736_040425_EjObligatorio/" class="text-blue-700 underline">Sitio</a></li>
+        </ul>
+
+        <h4 class="font-semibold text-[#8b5e3c]">UVA 2: Diseño de interfaz y UX</h4>
+        <ul class="list-disc list-inside">
+          <li>Formato de texto: <a href="https://github.com/aleeeeea/Martin_1223736_040425_Formatodetexto" class="text-blue-700 underline">Repositorio</a> | <a href="https://aleeeeea.github.io/Martin_1223736_040425_Formatodetexto/" class="text-blue-700 underline">Sitio</a></li>
+          <li>Formato de cajas: <a href="https://github.com/aleeeeea/Martin_1223736_040425_Formatodecajas" class="text-blue-700 underline">Repositorio</a> | <a href="https://aleeeeea.github.io/Martin_1223736_040425_Formatodecajas/" class="text-blue-700 underline">Sitio</a></li>
+          <li>Unidades de medida: <a href="https://github.com/aleeeeea/Martin_1223736_250425_Udemedida" class="text-blue-700 underline">Repositorio</a> | <a href="https://aleeeeea.github.io/Martin_1223736_250425_Udemedida/" class="text-blue-700 underline">Sitio</a></li>
+          <li>Grid y Flexbox: <a href="https://github.com/aleeeeea/Martin_1223736_250425_Grid-y-Flexbox" class="text-blue-700 underline">Repositorio</a> | <a href="https://aleeeeea.github.io/Martin_1223736_250425_Grid-y-Flexbox/" class="text-blue-700 underline">Sitio</a></li>
+          <li>UVA 2 entrega obligatoria en el parcial: <a href="https://github.com/aleeeeea/aleeeeea-Martin_1223736_250425_Parcial" class="text-blue-700 underline">Repositorio</a> | <a href="https://aleeeeea.github.io/aleeeeea-Martin_1223736_250425_Parcial/" class="text-blue-700 underline">Sitio</a></li>
+        </ul>
       </div>
     </div>
-    <div class="text-center mt-6">
-      <small class="text-gray-600">Curso: 15130 / Profesora: Patricia Litovicius</small>
-    </div>
-  </div>
+  </main>
 
-  <!-- FOOTER -->
-  <footer class="bg-[#8b5e3c] text-white text-center p-4 mt-6">
+  <footer class="bg-[#8b5e3c] text-white text-center p-4 mt-10">
     © 2025 Agustina Martin - UADE Diseño y Desarrollo Web (15130)
   </footer>
-
 </body>
 </html>
+

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contacto | Mi Cursada</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="flex flex-col min-h-screen fade-in">
 <nav class="bg-[#8b5e3c] text-white p-4 fixed w-full top-0 shadow-lg z-10">
@@ -23,17 +23,119 @@
 <main class="pt-24 container mx-auto px-4 text-gray-800 fade-in">
 
 <h2 class="text-3xl font-bold mb-6 text-center text-[#8b5e3c]">Contacto</h2>
-<form class="bg-white shadow-md rounded px-8 py-6 space-y-4">
-  <div><label class="block text-gray-700">Nombre</label><input type="text" class="w-full border rounded px-3 py-2" placeholder="Tu nombre"></div>
-  <div><label class="block text-gray-700">Correo electrónico</label><input type="email" class="w-full border rounded px-3 py-2" placeholder="tu@correo.com"></div>
-  <div><label class="block text-gray-700">Asunto</label><input type="text" class="w-full border rounded px-3 py-2" placeholder="Asunto del mensaje"></div>
-  <div><label class="block text-gray-700">Mensaje</label><textarea class="w-full border rounded px-3 py-2" rows="4" placeholder="Escribe tu mensaje"></textarea></div>
-  <div class="text-center"><button type="submit" class="bg-[#8b5e3c] text-white py-2 px-4 rounded hover:bg-[#7a4f32] transition">Enviar</button></div>
+
+<form id="formContacto" class="bg-white shadow-md rounded px-8 py-6 space-y-4" novalidate>
+  <div>
+    <label class="block text-gray-700" for="nombre">Nombre</label>
+    <input
+      type="text"
+      id="nombre"
+      class="w-full border rounded px-3 py-2"
+      placeholder="Tu nombre"
+    />
+    <p id="error-nombre" class="text-red-600 text-sm mt-1"></p>
+  </div>
+  <div>
+    <label class="block text-gray-700" for="email">Correo electrónico</label>
+    <input
+      type="email"
+      id="email"
+      class="w-full border rounded px-3 py-2"
+      placeholder="tu@correo.com"
+    />
+    <p id="error-email" class="text-red-600 text-sm mt-1"></p>
+  </div>
+  <div>
+    <label class="block text-gray-700" for="asunto">Asunto</label>
+    <input
+      type="text"
+      id="asunto"
+      class="w-full border rounded px-3 py-2"
+      placeholder="Asunto del mensaje"
+    />
+    <p id="error-asunto" class="text-red-600 text-sm mt-1"></p>
+  </div>
+  <div>
+    <label class="block text-gray-700" for="mensaje">Mensaje</label>
+    <textarea
+      id="mensaje"
+      class="w-full border rounded px-3 py-2"
+      rows="4"
+      placeholder="Escribe tu mensaje"
+    ></textarea>
+    <p id="error-mensaje" class="text-red-600 text-sm mt-1"></p>
+  </div>
+  <div class="text-center">
+    <button
+      type="submit"
+      class="bg-[#8b5e3c] text-white py-2 px-4 rounded hover:bg-[#7a4f32] transition"
+    >
+      Enviar
+    </button>
+  </div>
+  <div id="mensaje-final" class="text-center mt-4 font-semibold text-green-700"></div>
 </form>
 
 </main>
 <footer class="bg-[#8b5e3c] text-white text-center p-4 mt-auto">
   © 2025 Agustina Martin - UADE Diseño y Desarrollo Web (15130)
 </footer>
+
+<script>
+  const form = document.getElementById('formContacto');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Limpiar errores previos y mensaje final
+    ['nombre', 'email', 'asunto', 'mensaje'].forEach((id) => {
+      document.getElementById('error-' + id).textContent = '';
+    });
+    document.getElementById('mensaje-final').textContent = '';
+
+    // Valores
+    const nombre = document.getElementById('nombre').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const asunto = document.getElementById('asunto').value.trim();
+    const mensaje = document.getElementById('mensaje').value.trim();
+
+    let valid = true;
+
+    if (!nombre) {
+      document.getElementById('error-nombre').textContent = 'Por favor ingrese su nombre.';
+      valid = false;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      document.getElementById('error-email').textContent = 'Por favor ingrese su correo electrónico.';
+      valid = false;
+    } else if (!emailRegex.test(email)) {
+      document.getElementById('error-email').textContent = 'Ingrese un correo electrónico válido.';
+      valid = false;
+    }
+
+    if (!asunto) {
+      document.getElementById('error-asunto').textContent = 'Por favor ingrese el asunto.';
+      valid = false;
+    }
+
+    if (!mensaje) {
+      document.getElementById('error-mensaje').textContent = 'Por favor ingrese un mensaje.';
+      valid = false;
+    }
+
+    if (!valid) {
+      alert('Por favor corrija los errores en el formulario.');
+      return;
+    }
+
+    // Mostrar mensaje de éxito
+    document.getElementById('mensaje-final').textContent =
+      `Gracias por su contacto, ${nombre}. En breve le estaré respondiendo.`;
+
+    form.reset();
+  });
+</script>
 </body>
 </html>
+

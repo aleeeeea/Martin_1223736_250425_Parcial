@@ -10,7 +10,13 @@
 <body class="flex flex-col min-h-screen fade-in">
 <nav class="bg-[#8b5e3c] text-white p-4 fixed w-full top-0 shadow-lg z-10">
   <div class="container mx-auto flex justify-between items-center">
-    <h1 class="text-2xl font-bold">Mi Cursada</h1>
+    <div class="flex items-center space-x-4">
+      <h1 class="text-2xl font-bold">Mi Cursada</h1>
+      <div class="flex space-x-2">
+        <button id="lightMode" class="bg-white text-[#8b5e3c] px-3 py-1 rounded hover:bg-gray-200 transition">Claro</button>
+        <button id="darkMode" class="bg-black text-white px-3 py-1 rounded hover:bg-gray-800 transition">Oscuro</button>
+      </div>
+    </div>
     <ul class="flex space-x-4">
       <li><a href="index.html" class="hover:text-[#f5deb3] transition">Home</a></li>
       <li><a href="avisos.html" class="hover:text-[#f5deb3] transition">Avisos</a></li>
@@ -86,13 +92,11 @@
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    // Limpiar errores previos y mensaje final
     ['nombre', 'email', 'asunto', 'mensaje'].forEach((id) => {
       document.getElementById('error-' + id).textContent = '';
     });
     document.getElementById('mensaje-final').textContent = '';
 
-    // Valores
     const nombre = document.getElementById('nombre').value.trim();
     const email = document.getElementById('email').value.trim();
     const asunto = document.getElementById('asunto').value.trim();
@@ -129,11 +133,31 @@
       return;
     }
 
-    // Mostrar mensaje de éxito
     document.getElementById('mensaje-final').textContent =
       `Gracias por su contacto, ${nombre}. En breve le estaré respondiendo.`;
 
     form.reset();
+  });
+
+  // Modo claro / oscuro
+  const lightBtn = document.getElementById('lightMode');
+  const darkBtn = document.getElementById('darkMode');
+
+  lightBtn?.addEventListener('click', () => {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('theme', 'light');
+  });
+
+  darkBtn?.addEventListener('click', () => {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark');
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
   });
 </script>
 </body>

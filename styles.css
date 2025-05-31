@@ -2,12 +2,88 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #d7b899;
 }
-.fade-in {
-  animation: fadeIn 1s ease-in;
+
+/* Modo oscuro base */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
 }
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+
+body.dark-mode nav,
+body.dark-mode footer {
+  background-color: #111;
+  color: white;
+}
+
+body.dark-mode main {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-mode .bg-white {
+  background-color: #2b2b2b !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .bg-\[\#f5f5f5\] {
+  background-color: #2b2b2b;
+  color: #e0e0e0;
+}
+
+/* Fondo base claro */
+body,
+body:not(.dark-mode) {
+  background-color: #f5deb3; /* Color marrón clarito (trigo) */
+  color: #1a1a1a;
+}
+
+/* Links en modo oscuro */
+body.dark-mode a {
+  color: #90cdf4;
+}
+
+/* Corrige contraste en filas con fondo crema */
+body.dark-mode tr.bg-\[\#f5deb3\],
+body.dark-mode .bg-\[\#f5deb3\] {
+  background-color: #444 !important;
+  color: #f5deb3 !important;
+}
+
+/* Formularios en modo oscuro */
+body.dark-mode label,
+body.dark-mode input,
+body.dark-mode textarea {
+  color: #e0e0e0;
+  background-color: #333;
+  border-color: #555;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: #aaa;
+}
+
+/* Textos comunes en modo oscuro */
+body.dark-mode .text-gray-700 {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .text-green-700 {
+  color: #90ee90 !important;
+}
+
+body.dark-mode .text-red-600 {
+  color: #ff7b7b !important;
+}
+
+/* Bloques avisos modo claro */
+body:not(.dark-mode) .avisos-box {
+  background-color: white !important;
+  color: #1a1a1a !important;
+}
+
+body.dark-mode .avisos-box {
+  background-color: #2b2b2b !important;
+  color: #f0f0f0 !important;
 }

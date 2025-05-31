@@ -10,7 +10,13 @@
 <body class="flex flex-col min-h-screen fade-in">
 <nav class="bg-[#8b5e3c] text-white p-4 fixed w-full top-0 shadow-lg z-10">
   <div class="container mx-auto flex justify-between items-center">
-    <h1 class="text-2xl font-bold">Mi Cursada</h1>
+    <div class="flex items-center space-x-4">
+      <h1 class="text-2xl font-bold">Mi Cursada</h1>
+      <div class="flex space-x-2">
+        <button id="lightMode" class="bg-white text-[#8b5e3c] px-3 py-1 rounded hover:bg-gray-200 transition">Claro</button>
+        <button id="darkMode" class="bg-black text-white px-3 py-1 rounded hover:bg-gray-800 transition">Oscuro</button>
+      </div>
+    </div>
     <ul class="flex space-x-4">
       <li><a href="index.html" class="hover:text-[#f5deb3] transition">Home</a></li>
       <li><a href="avisos.html" class="hover:text-[#f5deb3] transition">Avisos</a></li>
@@ -22,40 +28,63 @@
 </nav>
 <main class="pt-24 container mx-auto px-4 text-gray-800 fade-in">
 
-<h2 class="text-3xl font-bold mb-6 text-[#8b5e3c]">Avisos y Tareas Pendientes</h2>
-<div class="bg-white rounded-lg shadow p-6">
-  <ul class="list-disc list-inside space-y-4 text-gray-800">
-    <li><strong>Fundamentos de Economía:</strong> Parcial 21/4</li>
-    <li>
-      <strong>Sistemas de Información I:</strong>
-      <ul class="list-disc list-inside ml-6 space-y-2">
-        <li>Parcial 29/4</li>
-        <li>Lectura de casos prácticos</li>
-        <li>Entrega punto 1.5 trabajo práctico grupal 5/5</li>
-      </ul>
-    </li>
-    <li>
-      <strong>Marketing:</strong>
-      <ul class="list-disc list-inside ml-6 space-y-2">
-        <li>Parcial 24/4</li>
-        <li>Revisar clase pasada</li>
-        <li>Leer capítulos 1,2,3 y 4 de Kotler</li>
-        <li>Realizar consigna de trabajo grupal UVA 5</li>
-      </ul>
-    </li>
-    <li>
-      <strong>Diseño y Desarrollo Web:</strong>
-      <ul class="list-disc list-inside ml-6 space-y-2">
-        <li>Entregar TPs obligatorios</li>
-        <li>Parcial 25/4 - 27/4</li>
-      </ul>
-    </li>
-  </ul>
-</div>
+  <h2 class="text-3xl font-bold mb-6 text-[#8b5e3c]">Avisos y Tareas Pendientes</h2>
+  
+  <!-- Aquí se aplica la clase avisos-box en lugar de bg-white y demás clases dark:... -->
+  <div class="avisos-box rounded-lg shadow p-6">
+    <ul class="list-disc list-inside space-y-4">
+      <li><strong>Fundamentos de Economía:</strong> Parcial 21/4</li>
+      <li>
+        <strong>Sistemas de Información I:</strong>
+        <ul class="list-disc list-inside ml-6 space-y-2">
+          <li>Parcial 29/4</li>
+          <li>Lectura de casos prácticos</li>
+          <li>Entrega punto 1.5 trabajo práctico grupal 5/5</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Marketing:</strong>
+        <ul class="list-disc list-inside ml-6 space-y-2">
+          <li>Parcial 24/4</li>
+          <li>Revisar clase pasada</li>
+          <li>Leer capítulos 1,2,3 y 4 de Kotler</li>
+          <li>Realizar consigna de trabajo grupal UVA 5</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Diseño y Desarrollo Web:</strong>
+        <ul class="list-disc list-inside ml-6 space-y-2">
+          <li>Entregar TPs obligatorios</li>
+          <li>Parcial 25/4 - 27/4</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
 </main>
 <footer class="bg-[#8b5e3c] text-white text-center p-4 mt-auto">
   © 2025 Agustina Martin - UADE Diseño y Desarrollo Web (15130)
 </footer>
+<script>
+  const lightBtn = document.getElementById('lightMode');
+  const darkBtn = document.getElementById('darkMode');
+
+  lightBtn.addEventListener('click', () => {
+    document.body.classList.remove('dark-mode');
+    localStorage.setItem('theme', 'light');
+  });
+
+  darkBtn.addEventListener('click', () => {
+    document.body.classList.add('dark-mode');
+    localStorage.setItem('theme', 'dark');
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  });
+</script>
 </body>
 </html>

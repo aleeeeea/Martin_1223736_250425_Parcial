@@ -17,7 +17,12 @@
         <button id="darkMode" class="bg-black text-white px-3 py-1 rounded hover:bg-gray-800 transition">Oscuro</button>
       </div>
     </div>
-    <ul class="flex space-x-4">
+    <button id="menu-toggle" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <ul id="menu" class="hidden flex-col space-y-2 md:flex md:flex-row md:space-x-4 md:space-y-0">
       <li><a href="index.html" class="hover:text-[#f5deb3] transition">Home</a></li>
       <li><a href="avisos.html" class="hover:text-[#f5deb3] transition">Avisos</a></li>
       <li><a href="sobremi.html" class="hover:text-[#f5deb3] transition">Sobre mí</a></li>
@@ -27,30 +32,29 @@
   </div>
 </nav>
 <main class="pt-24 container mx-auto px-4 text-gray-800 fade-in">
-
-<h2 class="text-3xl font-bold mb-6 text-center text-[#8b5e3c]">Materias del Cuatrimestre 2025</h2>
-<div class="overflow-x-auto">
-  <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
-    <thead class="bg-[#8b5e3c] text-white">
-      <tr>
-        <th class="py-3 px-6">Materia</th>
-        <th class="py-3 px-6">Día</th>
-        <th class="py-3 px-6">Horario</th>
-        <th class="py-3 px-6">Modalidad</th>
-      </tr>
-    </thead>
-    <tbody class="text-center">
-      <tr class="border-b"><td class="py-4 px-6">Introducción a la algoritmia</td><td>Lunes</td><td>18:30 - 20:30 hs</td><td>Virtual</td></tr>
-      <tr class="bg-[#f5deb3] border-b"><td class="py-4 px-6">Sistemas de información</td><td>Martes</td><td>18:30 - 20:30 hs</td><td>Virtual</td></tr>
-      <tr class="border-b"><td class="py-4 px-6">Arquitectura de computadores</td><td>Miércoles</td><td>18:30 - 20:30 hs</td><td>Virtual</td></tr>
-      <tr class="bg-[#f5deb3]"><td class="py-4 px-6">Marketing</td><td>Jueves</td><td>18:30 - 20:30 hs</td><td>Virtual</td></tr>
-      <tr class="border-b"><td class="py-4 px-6">Diseño y Desarrollo Web</td><td>Viernes</td><td>18:30 - 20:30 hs</td><td>Virtual</td></tr>
-    </tbody>
-  </table>
-</div>
-<div class="text-center mt-6">
-  <a href="dydw.html" class="text-[#8b5e3c] font-semibold hover:underline">Diseño y Desarrollo Web (15130)</a>
-</div>
+  <h2 class="text-3xl font-bold mb-6 text-center text-[#8b5e3c]">Materias del Cuatrimestre 2025</h2>
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white shadow-md rounded-lg overflow-hidden">
+      <thead class="bg-[#8b5e3c] text-white">
+        <tr>
+          <th class="py-3 px-6">Materia</th>
+          <th class="py-3 px-6">Día</th>
+          <th class="py-3 px-6">Horario</th>
+          <th class="py-3 px-6">Modalidad</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr class="border-b"><td class="py-4 px-6">Introducción a la algoritmia</td><td>Lunes</td><td>18:30 - 20:30 hs</td><td>Virtual</td></tr>
+        <tr class="bg-[#f5deb3] border-b"><td class="py-4 px-6">Sistemas de información</td><td>Martes</td><td>18:30 - 20:30 hs</td><td>Virtual</td></tr>
+        <tr class="border-b"><td class="py-4 px-6">Arquitectura de computadores</td><td>Miércoles</td><td>18:30 - 20:30 hs</td><td>Virtual</td></tr>
+        <tr class="bg-[#f5deb3]"><td class="py-4 px-6">Marketing</td><td>Jueves</td><td>18:30 - 20:30 hs</td><td>Virtual</td></tr>
+        <tr class="border-b"><td class="py-4 px-6">Diseño y Desarrollo Web</td><td>Viernes</td><td>18:30 - 20:30 hs</td><td>Virtual</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="text-center mt-6">
+    <a href="dydw.html" class="text-[#8b5e3c] font-semibold hover:underline">Diseño y Desarrollo Web (15130)</a>
+  </div>
 </main>
 <footer class="bg-[#8b5e3c] text-white text-center p-4 mt-auto">
   © 2025 Agustina Martin - UADE Diseño y Desarrollo Web (15130)
@@ -58,15 +62,21 @@
 <script>
   const lightBtn = document.getElementById('lightMode');
   const darkBtn = document.getElementById('darkMode');
+  const toggleBtn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
 
-  lightBtn.addEventListener('click', () => {
+  lightBtn?.addEventListener('click', () => {
     document.body.classList.remove('dark-mode');
     localStorage.setItem('theme', 'light');
   });
 
-  darkBtn.addEventListener('click', () => {
+  darkBtn?.addEventListener('click', () => {
     document.body.classList.add('dark-mode');
     localStorage.setItem('theme', 'dark');
+  });
+
+  toggleBtn?.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
   });
 
   window.addEventListener('DOMContentLoaded', () => {

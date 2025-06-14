@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Materias 2025 | Mi Cursada</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -16,7 +17,12 @@
           <button id="darkMode" class="bg-black text-white px-3 py-1 rounded hover:bg-gray-800 transition">Oscuro</button>
         </div>
       </div>
-      <ul class="flex space-x-4">
+      <button id="menu-toggle" class="md:hidden focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+      <ul id="menu" class="hidden flex-col space-y-2 md:flex md:flex-row md:space-x-4 md:space-y-0">
         <li><a href="index.html" class="hover:text-[#f5deb3] font-bold">Home</a></li>
         <li><a href="avisos.html" class="hover:text-[#f5deb3] font-bold">Avisos</a></li>
         <li><a href="sobremi.html" class="hover:text-[#f5deb3] font-bold">Sobre mí</a></li>
@@ -59,15 +65,21 @@
   <script>
     const lightBtn = document.getElementById('lightMode');
     const darkBtn = document.getElementById('darkMode');
+    const toggleBtn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('menu');
 
-    lightBtn.addEventListener('click', () => {
+    lightBtn?.addEventListener('click', () => {
       document.body.classList.remove('dark-mode');
       localStorage.setItem('theme', 'light');
     });
 
-    darkBtn.addEventListener('click', () => {
+    darkBtn?.addEventListener('click', () => {
       document.body.classList.add('dark-mode');
       localStorage.setItem('theme', 'dark');
+    });
+
+    toggleBtn?.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
     });
 
     window.addEventListener('DOMContentLoaded', () => {

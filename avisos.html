@@ -17,7 +17,12 @@
         <button id="darkMode" class="bg-black text-white px-3 py-1 rounded hover:bg-gray-800 transition">Oscuro</button>
       </div>
     </div>
-    <ul class="flex space-x-4">
+    <button id="menu-toggle" class="md:hidden focus:outline-none">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+    <ul id="menu" class="hidden flex-col space-y-2 md:flex md:flex-row md:space-x-4 md:space-y-0">
       <li><a href="index.html" class="hover:text-[#f5deb3] transition">Home</a></li>
       <li><a href="avisos.html" class="hover:text-[#f5deb3] transition">Avisos</a></li>
       <li><a href="sobremi.html" class="hover:text-[#f5deb3] transition">Sobre mí</a></li>
@@ -27,9 +32,7 @@
   </div>
 </nav>
 <main class="pt-24 container mx-auto px-4 text-gray-800 fade-in">
-
   <h2 class="text-3xl font-bold mb-6 text-[#8b5e3c]">Avisos y Tareas Pendientes</h2>
-  
   <div class="avisos-box rounded-lg shadow p-6">
     <ul class="list-disc list-inside space-y-4">
       <li><strong>Fundamentos de Economía:</strong> Parcial 21/4</li>
@@ -59,7 +62,6 @@
       </li>
     </ul>
   </div>
-
 </main>
 <footer class="bg-[#8b5e3c] text-white text-center p-4 mt-auto">
   © 2025 Agustina Martin - UADE Diseño y Desarrollo Web (15130)
@@ -67,15 +69,21 @@
 <script>
   const lightBtn = document.getElementById('lightMode');
   const darkBtn = document.getElementById('darkMode');
+  const toggleBtn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
 
-  lightBtn.addEventListener('click', () => {
+  lightBtn?.addEventListener('click', () => {
     document.body.classList.remove('dark-mode');
     localStorage.setItem('theme', 'light');
   });
 
-  darkBtn.addEventListener('click', () => {
+  darkBtn?.addEventListener('click', () => {
     document.body.classList.add('dark-mode');
     localStorage.setItem('theme', 'dark');
+  });
+
+  toggleBtn?.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
   });
 
   window.addEventListener('DOMContentLoaded', () => {
